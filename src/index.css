@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+    
+    body {
+        color: rgb(var(--foreground-rgb));
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+        )
+        rgb(var(--background-start-rgb));
+    }
+
+    :root[data-theme="dark"] {
+        --background-color: #000000;    
+        --text-color: #ffffff;
+        --primary-color: #000000;
+        --secondary-color: #434445;
+        --border-color: #ffffff;
+        --hover-color: #ffffff1a;
+        --error-color: #ff6b6b;
+        --success-color: #b1f0bc;
+    }
+
+    :root[data-theme="light"] {
+        --background-color: #ffffff;
+        --text-color: #2f2f2f;
+        --primary-color: #007bff;
+        --secondary-color: #6c757d;
+        --border-color: #333333;
+        --hover-color: #f8f9fa;
+        --error-color: #f76170;
+        --success-color: #9be9ad;
+    }
+
+    @layer utilities {
+        .text-balance {
+        text-wrap: balance;
+        }
+    }
+
+
+    /* Components */
+
+    /* styles.css */
+.dialog {
+  @apply relative z-10 focus:outline-none text-[var(--text-color)];
+}
+.dialog-overlay {
+  @apply fixed inset-0 z-50 bg-black/60; /* Dark semi-transparent background */
+}
+.dialog-panel-container {
+  @apply fixed inset-0 z-50 flex items-center justify-center p-4; /* Centering container */
+}
+.dialog-panel {
+  @apply bg-white dark:bg-neutral-900 rounded-lg shadow-xl p-6 w-full max-w-md mx-auto; /* Panel styling: background, rounded, shadow, padding, width */
+  /* Add any other specific panel styles here */
+}
+.dialog-title {
+  @apply text-lg font-semibold mb-1 text-gray-900 dark:text-white; /* Title styling */
+}
+.dialog-subtitle {
+  @apply text-sm text-gray-500 dark:text-gray-400 mb-4; /* Subtitle styling */
+}
+.button {
+  @apply inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700;
+}
